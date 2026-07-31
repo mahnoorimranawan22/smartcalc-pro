@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SmartCalc Pro</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+    <!-- Custom Theme Overrides -->
+    <style>
+        :root {
+            --bg-midnight: #090d16;
+            --panel-bg: rgba(17, 24, 39, 0.85);
+            --border-obsidian: #1f293d;
+            --accent-neon: #10b981;
+            --accent-cyan: #06b6d4;
+            --text-light: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+
+        /* Glassmorphic Obsidian Layouts */
+        body,
+        #wrapper,
+        #content-wrapper {
+            background-color: var(--bg-midnight) !important;
+            color: var(--text-muted) !important;
+        }
+
+        .bg-gradient-dark,
+        .bg-gradient-primary {
+            background-color: #111827 !important;
+            background-image: none !important;
+            border-right: 1px solid var(--border-obsidian) !important;
+        }
+
+        .btn-dark {
+            background-color: var(--accent-neon) !important;
+            border-color: var(--accent-neon) !important;
+            color: #ffffff !important;
+        }
+
+        .btn-dark:hover,
+        .btn-dark:focus,
+        .btn-dark:active {
+            background-color: #059669 !important;
+            border-color: #059669 !important;
+        }
+
+        .btn-light {
+            background-color: rgba(31, 41, 59, 0.6) !important;
+            border: 1px solid var(--border-obsidian) !important;
+            color: var(--text-light) !important;
+        }
+
+        .btn-light:hover {
+            background-color: rgba(31, 41, 59, 0.95) !important;
+            border-color: var(--accent-neon) !important;
+            color: #ffffff !important;
+        }
+
+        .btn-outline-danger {
+            color: #ef4444 !important;
+            border-color: #ef4444 !important;
+        }
+
+        .btn-outline-danger:hover {
+            background-color: #ef4444 !important;
+            color: #ffffff !important;
+        }
+
+        .btn-outline-warning {
+            color: #f59e0b !important;
+            border-color: #f59e0b !important;
+        }
+
+        .btn-outline-warning:hover {
+            background-color: #f59e0b !important;
+            color: #ffffff !important;
+        }
+
+        .btn-outline-secondary {
+            color: var(--accent-cyan) !important;
+            border-color: var(--accent-cyan) !important;
+        }
+
+        .btn-outline-secondary:hover {
+            background-color: var(--accent-cyan) !important;
+            color: #ffffff !important;
+        }
+
+        .btn-success {
+            background-color: var(--accent-neon) !important;
+            border-color: var(--accent-neon) !important;
+            color: #ffffff !important;
+        }
+
+        .btn-success:hover {
+            background-color: #059669 !important;
+            border-color: #059669 !important;
+        }
+
+        .custom-card {
+            border-radius: 16px !important;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5) !important;
+            border: 1px solid var(--border-obsidian) !important;
+            background-color: var(--panel-bg) !important;
+            backdrop-filter: blur(12px) !important;
+            -webkit-backdrop-filter: blur(12px) !important;
+        }
+
+        .custom-card .card-header {
+            border-top-left-radius: 16px !important;
+            border-top-right-radius: 16px !important;
+            border-bottom: 1px solid var(--border-obsidian) !important;
+            background-color: rgba(17, 24, 39, 0.95) !important;
+        }
+
+        .glowing-display {
+            background-color: var(--bg-midnight) !important;
+            border: 1px solid var(--border-obsidian) !important;
+            color: var(--accent-neon) !important;
+            text-shadow: 0 0 10px rgba(16, 185, 129, 0.4);
+            border-radius: 12px !important;
+        }
+
+        .glowing-display .text-muted {
+            color: var(--accent-cyan) !important;
+            opacity: 0.8 !important;
+        }
+
+        .topbar {
+            background-color: #111827 !important;
+            border-bottom: 1px solid var(--border-obsidian) !important;
+        }
+
+        .topbar .nav-link,
+        .topbar .nav-link i {
+            color: var(--text-muted) !important;
+        }
+
+        .topbar .nav-link:hover i {
+            color: var(--text-light) !important;
+        }
+
+        .topbar .text-gray-600 {
+            color: var(--text-light) !important;
+        }
+
+        /* History items list overrides */
+        .list-group-item {
+            background-color: transparent !important;
+            color: var(--text-muted) !important;
+            border-bottom: 1px solid var(--border-obsidian) !important;
+            transition: all 0.2s ease;
+        }
+
+        .list-group-item:hover {
+            background-color: rgba(31, 41, 59, 0.4) !important;
+            color: var(--text-light) !important;
+            cursor: pointer;
+        }
+
+        .card-header h6,
+        .text-dark,
+        .text-secondary,
+        .h3 {
+            color: var(--text-light) !important;
+        }
+
+        .dropdown-menu {
+            background-color: #111827 !important;
+            border: 1px solid var(--border-obsidian) !important;
+        }
+
+        .dropdown-item {
+            color: var(--text-muted) !important;
+        }
+
+        .dropdown-item:hover {
+            background-color: var(--border-obsidian) !important;
+            color: var(--text-light) !important;
+        }
+
+        .sticky-footer {
+            background-color: #111827 !important;
+            border-top: 1px solid var(--border-obsidian) !important;
+        }
+
+        .scroll-to-top {
+            background-color: var(--accent-neon) !important;
+        }
+
+        .sidebar-dark .nav-item.active .nav-link,
+        .sidebar-dark .nav-item.active .nav-link i {
+            color: var(--accent-neon) !important;
+        }
+
+        /* Seamless Transitions & Interaction Glow Shadows */
+        .btn,
+        .sidebar .nav-item .nav-link,
+        .sidebar .nav-item .nav-link i,
+        .form-control,
+        .custom-select {
+            transition: all 0.3s ease !important;
+        }
+
+        .btn:hover,
+        .btn-light:hover,
+        .btn-dark:hover,
+        .btn-outline-primary:hover,
+        .btn-outline-secondary:hover,
+        .btn-outline-danger:hover,
+        .btn-outline-warning:hover,
+        .btn-success:hover {
+            box-shadow: 0 0 15px rgba(16, 185, 129, 0.3) !important;
+        }
+
+        /* Responsive custom tweaks */
+        .card-body .btn {
+            min-height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+
+</head>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-dark sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="smartcalc.html">
+                <div class="sidebar-brand-icon">
+                    <i class="fas fa-calculator"></i>
+                </div>
+                <div class="sidebar-brand-text mx-3">SmartCalc</div>
+            </a>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Dashboard</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Nav Item - SmartCalc Pro -->
+            <li class="nav-item active">
+                <a class="nav-link" href="smartcalc.html">
+                    <i class="fas fa-fw fa-calculator"></i>
+                    <span>SmartCalc Pro</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+
+        </ul>
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Mahnoor Imran</span>
+                                <img class="img-profile rounded-circle" src="img/robot_avatar.png">
+                            </a>
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Profile
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Settings
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Activity Log
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                </nav>
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">SmartCalc Pro</h1>
+                    </div>
+
+                    <div class="row">
+                        <!-- Calculator Card Column -->
+                        <div class="col-lg-7 col-xl-8 mb-4">
+                            <div class="card custom-card h-100">
+                                <div
+                                    class="card-header py-3 bg-white d-flex align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-dark">
+                                        <i class="fas fa-calculator mr-2"></i>Calculator
+                                    </h6>
+                                    <span class="badge badge-dark px-3 py-2">Pro Edition</span>
+                                </div>
+                                <div class="card-body bg-light">
+                                    <!-- Calculator Display -->
+                                    <div class="card shadow-inner border-0 mb-4 glowing-display p-4 text-right">
+                                        <div id="calc-equation"
+                                            class="text-xs text-muted mb-1 text-monospace text-right"
+                                            style="min-height: 18px;">
+                                            &nbsp;
+                                        </div>
+                                        <div id="calc-display"
+                                            class="display-4 font-weight-bold text-monospace overflow-hidden">
+                                            0
+                                        </div>
+                                    </div>
+
+                                    <!-- Responsive 4-column Button Grid -->
+                                    <!-- Row 1: AC, DEL, %, ÷ -->
+                                    <div class="row no-gutters mb-2">
+                                        <div class="col-3 p-1">
+                                            <button
+                                                class="btn btn-outline-danger btn-block py-3 font-weight-bold shadow-sm">AC</button>
+                                        </div>
+                                        <div class="col-3 p-1">
+                                            <button
+                                                class="btn btn-outline-warning btn-block py-3 font-weight-bold shadow-sm">DEL</button>
+                                        </div>
+                                        <div class="col-3 p-1">
+                                            <button
+                                                class="btn btn-outline-secondary btn-block py-3 font-weight-bold shadow-sm">%</button>
+                                        </div>
+                                        <div class="col-3 p-1">
+                                            <button
+                                                class="btn btn-dark btn-block py-3 font-weight-bold shadow-sm">÷</button>
+                                        </div>
+                                    </div>
+                                    <!-- Row 2: 7, 8, 9, × -->
+                                    <div class="row no-gutters mb-2">
+                                        <div class="col-3 p-1">
+                                            <button
+                                                class="btn btn-light btn-block py-3 font-weight-bold border shadow-sm text-dark bg-white">7</button>
+                                        </div>
+                                        <div class="col-3 p-1">
+                                            <button
+                                                class="btn btn-light btn-block py-3 font-weight-bold border shadow-sm text-dark bg-white">8</button>
+                                        </div>
+                                        <div class="col-3 p-1">
+                                            <button
+                                                class="btn btn-light btn-block py-3 font-weight-bold border shadow-sm text-dark bg-white">9</button>
+                                        </div>
+                                        <div class="col-3 p-1">
+                                            <button
+                                                class="btn btn-dark btn-block py-3 font-weight-bold shadow-sm">×</button>
+                                        </div>
+                                    </div>
+                                    <!-- Row 3: 4, 5, 6, − -->
+                                    <div class="row no-gutters mb-2">
+                                        <div class="col-3 p-1">
+                                            <button
+                                                class="btn btn-light btn-block py-3 font-weight-bold border shadow-sm text-dark bg-white">4</button>
+                                        </div>
+                                        <div class="col-3 p-1">
+                                            <button
+                                                class="btn btn-light btn-block py-3 font-weight-bold border shadow-sm text-dark bg-white">5</button>
+                                        </div>
+                                        <div class="col-3 p-1">
+                                            <button
+                                                class="btn btn-light btn-block py-3 font-weight-bold border shadow-sm text-dark bg-white">6</button>
+                                        </div>
+                                        <div class="col-3 p-1">
+                                            <button
+                                                class="btn btn-dark btn-block py-3 font-weight-bold shadow-sm">−</button>
+                                        </div>
+                                    </div>
+                                    <!-- Row 4: 1, 2, 3, + -->
+                                    <div class="row no-gutters mb-2">
+                                        <div class="col-3 p-1">
+                                            <button
+                                                class="btn btn-light btn-block py-3 font-weight-bold border shadow-sm text-dark bg-white">1</button>
+                                        </div>
+                                        <div class="col-3 p-1">
+                                            <button
+                                                class="btn btn-light btn-block py-3 font-weight-bold border shadow-sm text-dark bg-white">2</button>
+                                        </div>
+                                        <div class="col-3 p-1">
+                                            <button
+                                                class="btn btn-light btn-block py-3 font-weight-bold border shadow-sm text-dark bg-white">3</button>
+                                        </div>
+                                        <div class="col-3 p-1">
+                                            <button
+                                                class="btn btn-dark btn-block py-3 font-weight-bold shadow-sm">+</button>
+                                        </div>
+                                    </div>
+                                    <!-- Row 5: 0, ., = -->
+                                    <div class="row no-gutters">
+                                        <div class="col-6 p-1">
+                                            <button
+                                                class="btn btn-light btn-block py-3 font-weight-bold border shadow-sm text-dark bg-white">0</button>
+                                        </div>
+                                        <div class="col-3 p-1">
+                                            <button
+                                                class="btn btn-light btn-block py-3 font-weight-bold border shadow-sm text-dark bg-white">.</button>
+                                        </div>
+                                        <div class="col-3 p-1">
+                                            <button
+                                                class="btn btn-success btn-block py-3 font-weight-bold shadow-sm">=</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- History Column -->
+                        <div class="col-lg-5 col-xl-4 mb-4">
+                            <div class="card custom-card h-100">
+                                <div
+                                    class="card-header py-3 bg-white d-flex align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-secondary">
+                                        <i class="fas fa-history mr-2"></i>History
+                                    </h6>
+                                    <button id="clear-history"
+                                        class="btn btn-sm btn-outline-danger font-weight-bold p-1 px-2">Clear
+                                        History</button>
+                                </div>
+                                <div class="card-body p-0">
+                                    <div id="history-list" class="list-group list-group-flush">
+                                        <!-- History elements will be dynamically generated by calculator.js -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; SmartCalc Pro 2026</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+
+    <!-- Calculator logic script -->
+    <script src="js/calculator.js"></script>
+
+</body>
+
+</html>

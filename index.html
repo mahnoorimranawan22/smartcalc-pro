@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SmartCalc Pro - Dashboard</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+    <!-- Custom Theme Overrides -->
+    <style>
+        :root {
+            --bg-midnight: #090d16;
+            --panel-bg: rgba(17, 24, 39, 0.85);
+            --border-obsidian: #1f293d;
+            --accent-neon: #10b981;
+            --accent-cyan: #06b6d4;
+            --text-light: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+
+        .bg-gradient-dark,
+        .bg-gradient-primary {
+            background-color: #111827 !important;
+            background-image: none !important;
+            border-right: 1px solid var(--border-obsidian) !important;
+        }
+
+        .text-primary {
+            color: var(--accent-neon) !important;
+        }
+
+        .btn-primary,
+        .btn-dark {
+            background-color: var(--accent-neon) !important;
+            border-color: var(--accent-neon) !important;
+            color: #ffffff !important;
+        }
+
+        .btn-primary:hover,
+        .btn-primary:focus,
+        .btn-primary:active,
+        .btn-dark:hover,
+        .btn-dark:focus,
+        .btn-dark:active {
+            background-color: #059669 !important;
+            border-color: #059669 !important;
+        }
+
+        .btn-outline-primary {
+            color: var(--accent-neon) !important;
+            border-color: var(--accent-neon) !important;
+        }
+
+        .btn-outline-primary:hover {
+            background-color: var(--accent-neon) !important;
+            color: #ffffff !important;
+        }
+
+        .custom-card {
+            border-radius: 12px !important;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5) !important;
+            border: 1px solid var(--border-obsidian) !important;
+            background-color: var(--panel-bg) !important;
+            backdrop-filter: blur(12px) !important;
+            -webkit-backdrop-filter: blur(12px) !important;
+        }
+
+        .custom-card .card-header {
+            border-top-left-radius: 12px !important;
+            border-top-right-radius: 12px !important;
+            border-bottom: 1px solid var(--border-obsidian) !important;
+            background-color: rgba(17, 24, 39, 0.95) !important;
+        }
+
+        .topbar {
+            background-color: #111827 !important;
+            border-bottom: 1px solid var(--border-obsidian) !important;
+        }
+
+        .topbar .nav-link,
+        .topbar .nav-link i {
+            color: var(--text-muted) !important;
+        }
+
+        .topbar .nav-link:hover i {
+            color: var(--text-light) !important;
+        }
+
+        .topbar .text-gray-600 {
+            color: var(--text-light) !important;
+        }
+
+        /* Glassmorphic Obsidian Overhauls */
+        body,
+        #wrapper,
+        #content-wrapper {
+            background-color: var(--bg-midnight) !important;
+            color: var(--text-muted) !important;
+        }
+
+        .topbar,
+        .sticky-footer {
+            background-color: #111827 !important;
+            border: none !important;
+        }
+
+        .sticky-footer {
+            border-top: 1px solid var(--border-obsidian) !important;
+        }
+
+        .card {
+            background-color: var(--panel-bg) !important;
+            border: 1px solid var(--border-obsidian) !important;
+            border-radius: 12px !important;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5) !important;
+            backdrop-filter: blur(12px) !important;
+            -webkit-backdrop-filter: blur(12px) !important;
+        }
+
+        .card-header {
+            background-color: rgba(17, 24, 39, 0.95) !important;
+            border-bottom: 1px solid var(--border-obsidian) !important;
+            border-top-left-radius: 12px !important;
+            border-top-right-radius: 12px !important;
+        }
+
+        .card-body {
+            color: var(--text-muted) !important;
+        }
+
+        .metric-card {
+            position: relative;
+            overflow: hidden;
+            border-top: 2px solid var(--accent-neon) !important;
+        }
+
+        .border-left-primary,
+        .border-left-success,
+        .border-left-info,
+        .border-left-warning {
+            border-left: none !important;
+        }
+
+        /* Seamless Transitions & Interaction Glow Shadows */
+        .btn,
+        .sidebar .nav-item .nav-link,
+        .sidebar .nav-item .nav-link i,
+        .form-control,
+        .custom-select {
+            transition: all 0.3s ease !important;
+        }
+
+        .btn:hover,
+        .btn-primary:hover,
+        .btn-dark:hover,
+        .btn-outline-primary:hover,
+        .btn-outline-secondary:hover,
+        .btn-outline-danger:hover,
+        .btn-outline-warning:hover,
+        .btn-success:hover {
+            box-shadow: 0 0 15px rgba(16, 185, 129, 0.3) !important;
+        }
+
+        .metric-value {
+            font-weight: 850 !important;
+            color: var(--text-light) !important;
+            letter-spacing: -0.5px;
+        }
+
+        .metric-label {
+            opacity: 1 !important;
+            color: var(--text-muted) !important;
+            font-weight: 700 !important;
+        }
+
+        .card-header h6,
+        .card-header .m-0 {
+            color: var(--text-light) !important;
+        }
+
+        .text-gray-800 {
+            color: var(--text-light) !important;
+        }
+
+        .text-gray-600 {
+            color: var(--text-muted) !important;
+        }
+
+        .dropdown-menu {
+            background-color: #111827 !important;
+            border: 1px solid var(--border-obsidian) !important;
+        }
+
+        .dropdown-item {
+            color: var(--text-muted) !important;
+        }
+
+        .dropdown-item:hover {
+            background-color: var(--border-obsidian) !important;
+            color: var(--text-light) !important;
+        }
+
+        .dropdown-list {
+            background-color: #111827 !important;
+            border: 1px solid var(--border-obsidian) !important;
+        }
+
+        .dropdown-list .dropdown-header {
+            background-color: #111827 !important;
+            border-bottom: 1px solid var(--border-obsidian) !important;
+            color: var(--accent-neon) !important;
+        }
+
+        .form-control,
+        .custom-select {
+            background-color: var(--bg-midnight) !important;
+            border: 1px solid var(--border-obsidian) !important;
+            color: var(--text-light) !important;
+        }
+
+        .form-control:focus,
+        .custom-select:focus {
+            background-color: var(--bg-midnight) !important;
+            border-color: var(--accent-neon) !important;
+            color: var(--text-light) !important;
+            box-shadow: 0 0 0 0.2rem rgba(16, 185, 129, 0.25) !important;
+        }
+
+        .bg-white {
+            background-color: #111827 !important;
+        }
+
+        .border-right {
+            border-right: 1px solid var(--border-obsidian) !important;
+        }
+
+        .scroll-to-top {
+            background-color: var(--accent-neon) !important;
+        }
+
+        .sidebar-dark .nav-item.active .nav-link,
+        .sidebar-dark .nav-item.active .nav-link i {
+            color: var(--accent-neon) !important;
+        }
+
+        /* Badge details styling overrides */
+        .badge-success {
+            background-color: var(--accent-neon) !important;
+        }
+
+        .badge-info {
+            background-color: var(--accent-cyan) !important;
+        }
+
+        /* Keyboard tags */
+        kbd {
+            background-color: var(--bg-midnight);
+            border: 1px solid var(--border-obsidian);
+            color: var(--accent-cyan);
+        }
+
+        .text-basic {
+            color: var(--accent-neon) !important;
+        }
+
+        .text-financial {
+            color: var(--accent-cyan) !important;
+        }
+
+        .text-scientific {
+            color: #6366f1 !important;
+        }
+    </style>
+
+</head>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                <div class="sidebar-brand-icon">
+                    <i class="fas fa-calculator"></i>
+                </div>
+                <div class="sidebar-brand-text mx-3">SmartCalc</div>
+            </a>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item active">
+                <a class="nav-link" href="index.html">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Dashboard</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Nav Item - SmartCalc Pro -->
+            <li class="nav-item">
+                <a class="nav-link" href="smartcalc.html">
+                    <i class="fas fa-fw fa-calculator"></i>
+                    <span>SmartCalc Pro</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+
+        </ul>
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+
+                    <!-- Topbar Search -->
+                    <form
+                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                        <div class="input-group">
+                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                                aria-label="Search" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="button">
+                                    <i class="fas fa-search fa-sm"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+
+                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                        <li class="nav-item dropdown no-arrow d-sm-none">
+                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-search fa-fw"></i>
+                            </a>
+                            <!-- Dropdown - Messages -->
+                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                                aria-labelledby="searchDropdown">
+                                <form class="form-inline mr-auto w-100 navbar-search">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control bg-light border-0 small"
+                                            placeholder="Search for..." aria-label="Search"
+                                            aria-describedby="basic-addon2">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="button">
+                                                <i class="fas fa-search fa-sm"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </li>
+
+
+
+                        <div class="topbar-divider d-none d-sm-block"></div>
+
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Mahnoor Imran</span>
+                                <img class="img-profile rounded-circle" src="img/robot_avatar.png">
+                            </a>
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Profile
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Settings
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Activity Log
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                </nav>
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+                    </div>
+
+                    <!-- Content Row -->
+                    <div class="row">
+
+                        <!-- Total Calculations Card -->
+                        <div class="col-xl-3 col-lg-6 col-md-6 mb-4">
+                            <div class="card custom-card metric-card border-left-primary py-2 h-100">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div
+                                                class="text-xs font-weight-bold text-primary text-uppercase mb-1 metric-label">
+                                                Total Calculations</div>
+                                            <div id="total-calculations"
+                                                class="h5 mb-0 font-weight-bold text-gray-800 metric-value">12,482</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-calculator fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Saved Equations Card -->
+                        <div class="col-xl-3 col-lg-6 col-md-6 mb-4">
+                            <div class="card custom-card metric-card border-left-success py-2 h-100">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div
+                                                class="text-xs font-weight-bold text-success text-uppercase mb-1 metric-label">
+                                                Saved Equations</div>
+                                            <div id="saved-equations"
+                                                class="h5 mb-0 font-weight-bold text-gray-800 metric-value">343</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-save fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Active Session Time Card -->
+                        <div class="col-xl-3 col-lg-6 col-md-6 mb-4">
+                            <div class="card custom-card metric-card border-left-info py-2 h-100">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div
+                                                class="text-xs font-weight-bold text-info text-uppercase mb-1 metric-label">
+                                                Active
+                                                Session Time
+                                            </div>
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col-auto">
+                                                    <div
+                                                        class="h5 mb-0 mr-3 font-weight-bold text-gray-800 metric-value">
+                                                        45 Mins
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="progress progress-sm mr-2">
+                                                        <div class="progress-bar bg-info" role="progressbar"
+                                                            style="width: 75%" aria-valuenow="75" aria-valuemin="0"
+                                                            aria-valuemax="100"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-clock fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Memory Slots Used Card -->
+                        <div class="col-xl-3 col-lg-6 col-md-6 mb-4">
+                            <div class="card custom-card metric-card border-left-warning py-2 h-100">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div
+                                                class="text-xs font-weight-bold text-warning text-uppercase mb-1 metric-label">
+                                                Memory Slots Used</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800 metric-value">5 / 8</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-memory fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Content Row -->
+
+                    <div class="row">
+
+                        <!-- Area Chart -->
+                        <div class="col-xl-8 col-lg-7">
+                            <div class="card shadow mb-4">
+                                <!-- Card Header - Dropdown -->
+                                <div
+                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-primary">Calculation Activity</h6>
+                                    <div class="dropdown no-arrow">
+                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                                            aria-labelledby="dropdownMenuLink">
+                                            <div class="dropdown-header">Dropdown Header:</div>
+                                            <a class="dropdown-item" href="#">Action</a>
+                                            <a class="dropdown-item" href="#">Another action</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="#">Something else here</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Card Body -->
+                                <div class="card-body">
+                                    <div class="chart-area">
+                                        <canvas id="myAreaChart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pie Chart -->
+                        <div class="col-xl-4 col-lg-5">
+                            <div class="card shadow mb-4">
+                                <!-- Card Header - Dropdown -->
+                                <div
+                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-primary">Calculation Types</h6>
+                                    <div class="dropdown no-arrow">
+                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                                            aria-labelledby="dropdownMenuLink">
+                                            <div class="dropdown-header">Dropdown Header:</div>
+                                            <a class="dropdown-item" href="#">Action</a>
+                                            <a class="dropdown-item" href="#">Another action</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="#">Something else here</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Card Body -->
+                                <div class="card-body">
+                                    <div class="chart-pie pt-4 pb-2">
+                                        <canvas id="myPieChart"></canvas>
+                                    </div>
+                                    <div class="mt-4 text-center small">
+                                        <span class="mr-2">
+                                            <i class="fas fa-circle text-basic"></i> Basic
+                                        </span>
+                                        <span class="mr-2">
+                                            <i class="fas fa-circle text-financial"></i> Financial
+                                        </span>
+                                        <span class="mr-2">
+                                            <i class="fas fa-circle text-scientific"></i> Scientific
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Content Row -->
+                    <div class="row">
+
+                        <!-- Content Column -->
+                        <div class="col-lg-6 mb-4">
+
+                            <!-- Calculator Settings & Customization Card -->
+                            <div class="card custom-card shadow mb-4">
+                                <div class="card-header py-3 d-flex align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-primary">Calculator Settings & Customization
+                                    </h6>
+                                    <i class="fas fa-sliders-h text-gray-400"></i>
+                                </div>
+                                <div class="card-body">
+                                    <form>
+                                        <div class="form-group row align-items-center mb-4">
+                                            <label
+                                                class="col-sm-8 col-form-label font-weight-bold text-gray-800">Decimal
+                                                Precision</label>
+                                            <div class="col-sm-4 text-right">
+                                                <select class="form-control form-control-sm">
+                                                    <option selected>2 Decimals</option>
+                                                    <option>4 Decimals</option>
+                                                    <option>6 Decimals</option>
+                                                    <option>Float (Auto)</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row align-items-center mb-4">
+                                            <label class="col-sm-8 col-form-label font-weight-bold text-gray-800">Theme
+                                                Preference</label>
+                                            <div class="col-sm-4 text-right">
+                                                <div class="custom-control custom-switch">
+                                                    <input type="checkbox" class="custom-control-input"
+                                                        id="darkModeSwitch" checked>
+                                                    <label class="custom-control-label text-gray-600"
+                                                        for="darkModeSwitch">Dark Mode</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row align-items-center mb-4">
+                                            <label
+                                                class="col-sm-8 col-form-label font-weight-bold text-gray-800">Calculation
+                                                History Limit</label>
+                                            <div class="col-sm-4 text-right">
+                                                <select class="form-control form-control-sm">
+                                                    <option>10 Entries</option>
+                                                    <option selected>20 Entries</option>
+                                                    <option>50 Entries</option>
+                                                    <option>Unlimited</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row align-items-center mb-0">
+                                            <label class="col-sm-8 col-form-label font-weight-bold text-gray-800">Enable
+                                                Haptic Feedback</label>
+                                            <div class="col-sm-4 text-right">
+                                                <div class="custom-control custom-switch">
+                                                    <input type="checkbox" class="custom-control-input"
+                                                        id="hapticSwitch">
+                                                    <label class="custom-control-label text-gray-600"
+                                                        for="hapticSwitch">Toggled</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="col-lg-6 mb-4">
+
+                            <!-- Quick Instructions & Usage Tips -->
+                            <div class="card custom-card shadow mb-4">
+                                <div class="card-header py-3 d-flex align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-primary">Quick Instructions & Usage Tips</h6>
+                                    <i class="fas fa-lightbulb text-gray-400"></i>
+                                </div>
+                                <div class="card-body">
+                                    <h6 class="font-weight-bold text-gray-800">Keyboard Shortcuts</h6>
+                                    <p class="text-gray-600 small">
+                                        Use your numeric keypad for numbers, <kbd>+</kbd>, <kbd>-</kbd>, <kbd>*</kbd>,
+                                        <kbd>/</kbd> for basic operations, and <kbd>Enter</kbd> or <kbd>=</kbd> to
+                                        compute. Press <kbd>Esc</kbd> for Clear (AC) or <kbd>Backspace</kbd> for Delete.
+                                    </p>
+                                    <hr>
+                                    <h6 class="font-weight-bold text-gray-800">History Memory Panel</h6>
+                                    <p class="text-gray-600 small">
+                                        All successful calculations are saved to the sidebar history panel. Click on any
+                                        past calculation in the feed to restore it directly back onto the active display
+                                        screen.
+                                    </p>
+                                    <hr>
+                                    <h6 class="font-weight-bold text-gray-800">Memory Options</h6>
+                                    <p class="text-gray-600 small mb-0">
+                                        Use key operators to store or subtract sums into local cookie states. Click
+                                        "Clear History" at the bottom of the history feed to free memory blocks.
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; SmartCalc Pro 2026</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="vendor/chart.js/Chart.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="js/demo/chart-area-demo.js"></script>
+    <script src="js/demo/chart-pie-demo.js"></script>
+    <script src="js/dashboard.js"></script>
+
+</body>
+
+</html>
