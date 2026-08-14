@@ -11,6 +11,9 @@
 
     <title>SmartCalc Pro - Dashboard</title>
 
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
@@ -495,9 +498,9 @@
                                             </div>
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col-auto">
-                                                    <div
+                                                    <div id="active-session-time"
                                                         class="h5 mb-0 mr-3 font-weight-bold text-gray-800 metric-value">
-                                                        45 Mins
+                                                        Less than 1 Min
                                                     </div>
                                                 </div>
                                                 <div class="col">
@@ -526,7 +529,8 @@
                                             <div
                                                 class="text-xs font-weight-bold text-warning text-uppercase mb-1 metric-label">
                                                 Memory Slots Used</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800 metric-value">5 / 8</div>
+                                            <div id="memory-slots"
+                                                class="h5 mb-0 font-weight-bold text-gray-800 metric-value">0 / 8</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-memory fa-2x text-gray-300"></i>
@@ -635,7 +639,7 @@
                                                 class="col-sm-8 col-form-label font-weight-bold text-gray-800">Decimal
                                                 Precision</label>
                                             <div class="col-sm-4 text-right">
-                                                <select class="form-control form-control-sm">
+                                                <select id="decimalPrecision" class="form-control form-control-sm">
                                                     <option selected>2 Decimals</option>
                                                     <option>4 Decimals</option>
                                                     <option>6 Decimals</option>
@@ -660,7 +664,7 @@
                                                 class="col-sm-8 col-form-label font-weight-bold text-gray-800">Calculation
                                                 History Limit</label>
                                             <div class="col-sm-4 text-right">
-                                                <select class="form-control form-control-sm">
+                                                <select id="historyLimit" class="form-control form-control-sm">
                                                     <option>10 Entries</option>
                                                     <option selected>20 Entries</option>
                                                     <option>50 Entries</option>
