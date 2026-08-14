@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartCalc Pro - Page Redirecting</title>
+    <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+    <script>
+        // Automatic redirect to index.html for GitHub Pages subpath navigation
+        var segment = window.location.pathname.split('/').pop();
+        if (segment === '' || segment === '404.html' || segment === '404') {
+            window.location.replace("index.html");
+        } else {
+            window.location.replace("index.html");
+        }
+    </script>
+</head>
+
+<body
+    style="background-color: #090d16; color: #f8fafc; font-family: sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0;">
+    <div style="text-align: center;">
+        <h1 style="color: #10b981;">SmartCalc Pro</h1>
+        <p style="color: #94a3b8;">Redirecting to main dashboard...</p>
+        <a href="index.html" style="color: #06b6d4; text-decoration: none;">Click here if you are not redirected
+            automatically</a>
+    </div>
+</body>
+
+</html>
